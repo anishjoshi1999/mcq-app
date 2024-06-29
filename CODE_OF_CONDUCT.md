@@ -23,7 +23,7 @@ Examples of unacceptable behavior include:
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting me at [contact@example.com](mailto:contact@example.com). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. I am committed to maintaining confidentiality with regard to the reporter of an incident.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting me at [anishjoshi1999@gmail.com](mailto:anishjoshi1999@gmail.com). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. I am committed to maintaining confidentiality with regard to the reporter of an incident.
 
 ## Attribution
 
