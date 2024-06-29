@@ -14,7 +14,6 @@ app.use(express.json());
 app.use(cors());
 // Importing Routes
 const mcqRoute = require("./Routes/mcqRoute");
-const topicRoute = require("./Routes/topicRoute");
 
 // Connection to Database
 
@@ -41,6 +40,8 @@ app.get("/", (req, res) => {
 });
 // "/api/mcq*"
 app.use("/api/mcq", mcqRoute);
-
-// "/api/topic*"
-app.use("/api/topic", topicRoute);
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: "Internal Server Error" });
+});
