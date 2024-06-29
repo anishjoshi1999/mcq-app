@@ -1,49 +1,113 @@
 const MCQ = require("../Models/mcqSchema");
 const Topic = require("../Models/topicSchema");
+const slugify = require("slugify");
 
 async function uploadMCQS(req, res) {
   try {
-    // Step 1: Get a new topic entry with the inserted MCQs from Form
-    // name = "C Language"
+    // Step 1: Get the topic name from the request body
     const { name } = req.body;
-    const mcqsData = require("../Data/c_language_mcqs.json"); // Load JSON data
-    // Step 2: Insert all MCQs into the MCQ collection
-    const insertedMCQs = await MCQ.insertMany(mcqsData);
 
+    // Step 2: Load MCQs data from JSON file
+    const mcqsData = require("../Data/c_language_mcqs.json");
+
+    // Step 3: Process each MCQ and generate slugs
+    const processedMCQs = mcqsData.map((mcq) => ({
+      question: mcq.question,
+      slug: slugify(mcq.question, { lower: true, strict: true }), // Generate slug for the question
+      image: mcq.image,
+      options: mcq.options,
+      correctAnswer: mcq.correctAnswer,
+      explanation: mcq.explanation,
+    }));
+
+    // Step 4: Insert all processed MCQs into the MCQ collection
+    const insertedMCQs = await MCQ.insertMany(processedMCQs);
+
+    // Step 5: Create a new topic entry with the inserted MCQs' IDs
     const topic = new Topic({
       name: name,
       mcqs: insertedMCQs.map((mcq) => mcq._id), // Assuming _id field is used for referencing MCQs
     });
 
-    await topic.save(); // Save the topic to associate with MCQs
+    // Step 6: Save the topic to associate with MCQs
+    await topic.save();
 
+    // Step 7: Respond with success message
     res.status(200).json({
       message: "MCQs uploaded and associated with topic successfully",
     });
   } catch (error) {
+    // Error handling
     console.error("Error uploading and associating MCQs:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
+// Controller function to fetch all the Topics saved in the Database
+async function getAllTopics(req, res) {
+  try {
+    // Retrieve all topics from the database, including only 'name' and 'slug' fields
+    const topics = await Topic.find({}, { name: 1, slug: 1, _id: 0 });
 
-// Controller function to retrieve MCQs based on topic name
-async function getMCQsByTopic(req, res) {
+    // Respond with a JSON array of topics
+    res.status(200).json(topics);
+  } catch (error) {
+    // Handle errors if fetching topics fails
+    console.error("Error retrieving topics:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+// Controller function to fetch specific MCQ based on topic name and question slug
+async function getMCQByTopicAndSlug(req, res) {
+  const { topicSlug, questionSlug } = req.params;
+
+  try {
+    // Find the topic based on the slug and populate MCQs
+    const topic = await Topic.findOne({ slug: topicSlug }).populate({
+      path: "mcqs",
+      match: { slug: questionSlug },
+    });
+
+    if (!topic) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    // Extract the MCQ from the topic and send as response
+    const mcq = topic.mcqs.find((mcq) => mcq.slug === questionSlug);
+
+    if (!mcq) {
+      return res.status(404).json({ error: "MCQ not found" });
+    }
+
+    res.status(200).json(mcq);
+  } catch (error) {
+    console.error("Error retrieving MCQ by topic and slug:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+// Controller function to retrieve MCQs based on topic slug
+async function getAllMCQsByTopic(req, res) {
   const slug = req.params.slug;
 
   try {
-    // Find the topic based on the name
+    // Find the topic based on the slug and populate MCQs
     const topic = await Topic.findOne({ slug: slug }).populate("mcqs");
 
     if (!topic) {
       return res.status(404).json({ error: "Topic not found" });
     }
 
-    // Extract MCQs from the topic and send as response
-    const mcqs = topic.mcqs;
-    res.status(200).json(mcqs);
+    // Respond with the found topic and its associated MCQs
+    res.status(200).json(topic);
   } catch (error) {
+    // Error handling
     console.error("Error retrieving MCQs by topic:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
-module.exports = { uploadMCQS, getMCQsByTopic };
+module.exports = {
+  uploadMCQS,
+  getAllMCQsByTopic,
+  getAllTopics,
+  getMCQByTopicAndSlug,
+};

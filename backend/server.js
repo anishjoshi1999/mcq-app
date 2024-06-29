@@ -39,4 +39,9 @@ app.get("/", (req, res) => {
   res.send("Welcome to MCQ-App Backend");
 });
 // "/api/mcq*"
-app.use("/api", mcqRoute);
+app.use("/api/mcq", mcqRoute);
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: "Internal Server Error" });
+});

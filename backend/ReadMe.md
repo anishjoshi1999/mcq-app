@@ -1,8 +1,6 @@
-# MCQ-App
-
-This repository contains the frontend and backend code for the MCQ-App, which allows users to upload, manage, and retrieve multiple choice questions (MCQs) related to different topics. The backend is built with Node.js, Express, and MongoDB.
-
 # MCQ-App Backend
+
+This repository contains the backend code for the MCQ-App, which allows users to upload, manage, and retrieve multiple choice questions (MCQs) related to different topics. The backend is built with Node.js, Express, and MongoDB.
 
 ## Table of Contents
 
@@ -116,4 +114,4 @@ Replace `your_mongodb_connection_string` with the actual connection string for y
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the MIT License. See the LICENSE file for details.

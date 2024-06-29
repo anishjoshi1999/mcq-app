@@ -6,6 +6,11 @@ const mcqSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  slug: {
+    type: String,
+    unique: true,
+    required: true,
+  },
   image: {
     type: String, // This can be optional, assuming it's a URL or file path
   },
