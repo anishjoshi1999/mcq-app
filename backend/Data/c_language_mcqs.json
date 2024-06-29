@@ -1,0 +1,170 @@
+[
+  {
+    "question": "Which of the following is not a valid variable name in C?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "_myVar" },
+      { "label": "b", "value": "3rdVar" },
+      { "label": "c", "value": "my-Var" },
+      { "label": "d", "value": "myVar" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Variable names cannot contain hyphens in C."
+  },
+  {
+    "question": "What will be the output of the following code?\n\n```c\n#include <stdio.h>\nint main() {\n  printf(\"%d\\n\", sizeof('a'));\n  return 0;\n}\n```",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "1" },
+      { "label": "b", "value": "2" },
+      { "label": "c", "value": "4" },
+      { "label": "d", "value": "8" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "The sizeof('a') gives the size of a character constant, which is 1 byte."
+  },
+  {
+    "question": "What is the output of the following code?\n\n```c\n#include <stdio.h>\nint main() {\n  int x = 10;\n  int *ptr = &x;\n  printf(\"%d\\n\", *ptr);\n  return 0;\n}\n```",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "10" },
+      { "label": "b", "value": "0" },
+      { "label": "c", "value": "Garbage value" },
+      { "label": "d", "value": "Compilation Error" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "`*ptr` dereferences the pointer and prints the value of `x`, which is 10."
+  },
+  {
+    "question": "Which function is used to allocate memory dynamically in C?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "malloc()" },
+      { "label": "b", "value": "calloc()" },
+      { "label": "c", "value": "realloc()" },
+      { "label": "d", "value": "All of the above" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "`malloc()`, `calloc()`, and `realloc()` are used for dynamic memory allocation in C."
+  },
+  {
+    "question": "What is the size of int data type in C?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "4 bytes" },
+      { "label": "b", "value": "2 bytes" },
+      { "label": "c", "value": "Depends on the compiler" },
+      { "label": "d", "value": "8 bytes" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "The size of int in C varies depending on the compiler and system architecture."
+  },
+  {
+    "question": "What is the result of `printf(\"%d\", 3 + 4 * 2 / (1 - 5) % 2);` in C?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "3" },
+      { "label": "b", "value": "4" },
+      { "label": "c", "value": "7" },
+      { "label": "d", "value": "1" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Operator precedence rules in C evaluate the expression to 7."
+  },
+  {
+    "question": "Which operator is used to access the value stored at the address of a variable in C?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "&" },
+      { "label": "b", "value": "*" },
+      { "label": "c", "value": "#" },
+      { "label": "d", "value": "$" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "The `*` (asterisk) operator is used for dereferencing in C."
+  },
+  {
+    "question": "What will be the output of the following code?\n\n```c\n#include <stdio.h>\nint main() {\n  int x = 5;\n  int y = x++;\n  printf(\"%d %d\\n\", x, y);\n  return 0;\n}\n```",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "6 5" },
+      { "label": "b", "value": "5 5" },
+      { "label": "c", "value": "5 6" },
+      { "label": "d", "value": "6 6" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Post-increment operator (`x++`) increments x after assigning its original value to y."
+  },
+  {
+    "question": "Which header file is used to perform input and output operations in C?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "<stdlib.h>" },
+      { "label": "b", "value": "<math.h>" },
+      { "label": "c", "value": "<stdio.h>" },
+      { "label": "d", "value": "<string.h>" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "`<stdio.h>` (Standard Input Output) header file is used for input and output operations in C."
+  },
+  {
+    "question": "What is the output of the following code?\n\n```c\n#include <stdio.h>\nint main() {\n  int i = 0;\n  while (i < 5) {\n    printf(\"%d \", i);\n    i++;\n  }\n  return 0;\n}\n```",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "0 1 2 3 4" },
+      { "label": "b", "value": "0 1 2 3 4 5" },
+      { "label": "c", "value": "1 2 3 4 5" },
+      { "label": "d", "value": "0" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "The loop prints values of i from 0 to 4 (inclusive)."
+  },
+  {
+    "question": "Which operator is used to perform logical AND operation in C?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "&&" },
+      { "label": "b", "value": "&" },
+      { "label": "c", "value": "||" },
+      { "label": "d", "value": "!&" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "`&&` (logical AND) operator performs logical AND operation in C."
+  },
+  {
+    "question": "What is the format specifier for printing a float in C?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "%f" },
+      { "label": "b", "value": "%d" },
+      { "label": "c", "value": "%s" },
+      { "label": "d", "value": "%c" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "`%f` is the format specifier for printing a float in C."
+  },
+  {
+    "question": "Which type of loop is known as an entry-controlled loop in C?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "while loop" },
+      { "label": "b", "value": "for loop" },
+      { "label": "c", "value": "do-while loop" },
+      { "label": "d", "value": "None of the above" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "In C, the for loop is an entry-controlled loop."
+  },
+  {
+    "question": "What is the output of the following code?\n\n```c\n#include <stdio.h>\nint main() {\n  int arr[] = {1, 2, 3, 4, 5};\n  printf(\"%d\\n\", arr[3]);\n  return 0;\n}\n```",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "4" },
+      { "label": "b", "value": "3" },
+      { "label": "c", "value": "5" },
+      { "label": "d", "value": "Compilation Error" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "`arr[3]` accesses the element at index 3 (fourth element) of the array."
+  }
+]
