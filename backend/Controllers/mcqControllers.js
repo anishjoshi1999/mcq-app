@@ -87,7 +87,7 @@ async function getMCQByTopicAndSlug(req, res) {
 }
 // Controller function to retrieve MCQs based on topic slug
 async function getAllMCQsByTopic(req, res) {
-  const slug = req.params.slug;
+  const slug = req.params.topicSlug;
 
   try {
     // Find the topic based on the slug and populate MCQs
@@ -105,9 +105,144 @@ async function getAllMCQsByTopic(req, res) {
     res.status(500).json({ error: "Internal Server Error" });
   }
 }
+
+// Controller function to delete all MCQs based on topic slug
+async function deleteAllMCQsByTopic(req, res) {
+  const slug = req.params.topicSlug;
+
+  try {
+    // Find the topic based on the slug
+    const topic = await Topic.findOne({ slug });
+
+    if (!topic) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    // Delete all MCQs associated with the topic
+    await MCQ.deleteMany({ _id: { $in: topic.mcqs } });
+
+    // Clear the MCQs array in the topic
+    topic.mcqs = [];
+    await topic.save();
+
+    res
+      .status(200)
+      .json({ message: "All MCQs for the topic have been deleted" });
+  } catch (error) {
+    console.error("Error deleting MCQs by topic:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+// Controller function to append more MCQs to an existing topic
+async function appendMCQsToTopic(req, res) {
+  const slug = req.params.topicSlug;
+  const mcqsData = req.body.mcqs; // Assuming MCQs data is sent in the request body
+
+  try {
+    // Find the topic based on the slug
+    const topic = await Topic.findOne({ slug });
+
+    if (!topic) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    // Process each new MCQ and generate slugs
+    const processedMCQs = mcqsData.map((mcq) => ({
+      question: mcq.question,
+      slug: slugify(mcq.question, { lower: true, strict: true }), // Generate slug for the question
+      image: mcq.image,
+      options: mcq.options,
+      correctAnswer: mcq.correctAnswer,
+      explanation: mcq.explanation,
+    }));
+
+    // Insert the new MCQs into the MCQ collection
+    const insertedMCQs = await MCQ.insertMany(processedMCQs);
+
+    // Append the new MCQs' IDs to the topic's mcqs array
+    topic.mcqs.push(...insertedMCQs.map((mcq) => mcq._id));
+
+    // Save the updated topic
+    await topic.save();
+
+    res.status(200).json({
+      message: "MCQs appended to the topic successfully",
+      appendedMCQs: insertedMCQs,
+    });
+  } catch (error) {
+    console.error("Error appending MCQs to topic:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+// Controller function to update a specific MCQ
+async function updateSpecificMCQ(req, res) {
+  const { topicSlug, questionSlug } = req.params;
+  const updateData = req.body;
+
+  try {
+    const topic = await Topic.findOne({ slug: topicSlug }).populate({
+      path: "mcqs",
+      match: { slug: questionSlug },
+    });
+
+    if (!topic) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    const mcq = topic.mcqs.find((mcq) => mcq.slug === questionSlug);
+
+    if (!mcq) {
+      return res.status(404).json({ error: "MCQ not found" });
+    }
+
+    Object.assign(mcq, updateData);
+    await mcq.save();
+
+    res.status(200).json({ message: "MCQ updated successfully", mcq });
+  } catch (error) {
+    console.error("Error updating MCQ:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+// Controller function to delete a specific MCQ
+async function deleteSpecificMCQ(req, res) {
+  const { topicSlug, questionSlug } = req.params;
+
+  try {
+    const topic = await Topic.findOne({ slug: topicSlug }).populate({
+      path: "mcqs",
+      match: { slug: questionSlug },
+    });
+
+    if (!topic) {
+      return res.status(404).json({ error: "Topic not found" });
+    }
+
+    const mcqIndex = topic.mcqs.findIndex((mcq) => mcq.slug === questionSlug);
+
+    if (mcqIndex === -1) {
+      return res.status(404).json({ error: "MCQ not found" });
+    }
+
+    const mcqId = topic.mcqs[mcqIndex]._id;
+    topic.mcqs.splice(mcqIndex, 1);
+    await topic.save();
+    await MCQ.findByIdAndDelete(mcqId);
+
+    res.status(200).json({ message: "MCQ deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting MCQ:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
 module.exports = {
   uploadMCQS,
   getAllMCQsByTopic,
   getAllTopics,
   getMCQByTopicAndSlug,
+  deleteAllMCQsByTopic,
+  appendMCQsToTopic,
+  updateSpecificMCQ,
+  deleteSpecificMCQ,
 };
