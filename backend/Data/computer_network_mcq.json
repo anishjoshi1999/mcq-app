@@ -1,0 +1,251 @@
+[
+  {
+    "question": "What does TCP stand for in the context of computer networks?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Transmission Control Protocol" },
+      { "label": "b", "value": "Transfer Control Protocol" },
+      { "label": "c", "value": "Transmitting Control Protocol" },
+      { "label": "d", "value": "Terminal Control Protocol" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "TCP stands for Transmission Control Protocol, which is responsible for reliable data delivery in computer networks."
+  },
+  {
+    "question": "Which layer of the OSI model is responsible for routing and forwarding data packets?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Physical layer" },
+      { "label": "b", "value": "Network layer" },
+      { "label": "c", "value": "Transport layer" },
+      { "label": "d", "value": "Data link layer" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "The Network layer (Layer 3) of the OSI model handles routing and forwarding data packets between networks."
+  },
+  {
+    "question": "What is the purpose of ARP (Address Resolution Protocol) in networking?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "To resolve IP addresses to MAC addresses" },
+      { "label": "b", "value": "To resolve domain names to IP addresses" },
+      { "label": "c", "value": "To secure communication channels" },
+      { "label": "d", "value": "To establish VPN connections" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "ARP is used to resolve (map) IP addresses to MAC addresses at the data link layer (Layer 2) of the OSI model."
+  },
+  {
+    "question": "Which of the following is NOT a characteristic of a subnet mask?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Defines the network portion of an IP address" },
+      { "label": "b", "value": "Always ends with .0" },
+      { "label": "c", "value": "Used to determine the network size" },
+      { "label": "d", "value": "Written in dotted decimal format" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "A subnet mask does not always end with .0; it varies based on the network configuration."
+  },
+  {
+    "question": "Which protocol is used by email clients to retrieve emails from a remote server?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "SMTP" },
+      { "label": "b", "value": "POP3" },
+      { "label": "c", "value": "IMAP" },
+      { "label": "d", "value": "FTP" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "POP3 (Post Office Protocol version 3) is used by email clients to retrieve emails from a remote server."
+  },
+  {
+    "question": "What does DHCP stand for in networking?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Dynamic Host Configuration Protocol" },
+      { "label": "b", "value": "Domain Host Configuration Protocol" },
+      { "label": "c", "value": "Distributed Host Configuration Protocol" },
+      { "label": "d", "value": "Data Handling Configuration Protocol" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses to devices on a network."
+  },
+  {
+    "question": "Which protocol is used for secure communication over a computer network?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "HTTP" },
+      { "label": "b", "value": "FTP" },
+      { "label": "c", "value": "HTTPS" },
+      { "label": "d", "value": "Telnet" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "HTTPS (HyperText Transfer Protocol Secure) is used for secure communication over a computer network."
+  },
+  {
+    "question": "In which layer of the OSI model do switches operate?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Data link layer" },
+      { "label": "b", "value": "Physical layer" },
+      { "label": "c", "value": "Network layer" },
+      { "label": "d", "value": "Transport layer" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "Switches operate at the Data link layer (Layer 2) of the OSI model, handling MAC addresses."
+  },
+  {
+    "question": "Which of the following is an example of a private IP address?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "192.168.1.1" },
+      { "label": "b", "value": "172.16.0.1" },
+      { "label": "c", "value": "10.0.0.1" },
+      { "label": "d", "value": "All of the above" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "192.168.1.1, 172.16.0.1, and 10.0.0.1 are examples of private IP addresses, used within private networks."
+  },
+  {
+    "question": "What is the purpose of ICMP (Internet Control Message Protocol)?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "To control internet traffic congestion" },
+      { "label": "b", "value": "To diagnose network connectivity issues" },
+      { "label": "c", "value": "To secure web browsers" },
+      { "label": "d", "value": "To encrypt email communications" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "ICMP is used by network devices to send error messages indicating issues with network connectivity."
+  },
+  {
+    "question": "Which device connects multiple network segments and forwards packets between them?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Router" },
+      { "label": "b", "value": "Hub" },
+      { "label": "c", "value": "Bridge" },
+      { "label": "d", "value": "Switch" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "A router connects multiple network segments (or networks) and forwards packets between them based on IP addresses."
+  },
+  {
+    "question": "Which protocol is used for securely logging into a remote computer?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "SSH" },
+      { "label": "b", "value": "Telnet" },
+      { "label": "c", "value": "HTTP" },
+      { "label": "d", "value": "FTP" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "SSH (Secure Shell) is used for securely logging into and managing a remote computer or server."
+  },
+  {
+    "question": "Which of the following is a characteristic of a star network topology?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Each device is connected to a central node" },
+      {
+        "label": "b",
+        "value": "Devices are connected in a daisy-chain fashion"
+      },
+      { "label": "c", "value": "Devices form a closed loop" },
+      { "label": "d", "value": "Devices are interconnected randomly" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "In a star network topology, each device (like computers or peripherals) is connected to a central hub or switch."
+  },
+  {
+    "question": "Which transport layer protocol is connection-oriented?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "TCP" },
+      { "label": "b", "value": "UDP" },
+      { "label": "c", "value": "HTTP" },
+      { "label": "d", "value": "IP" }
+    ],
+    "correctAnswer": "a",
+    "explanation": "TCP (Transmission Control Protocol) is a connection-oriented protocol that ensures reliable and ordered delivery of data."
+  },
+  {
+    "question": "What is the function of NAT (Network Address Translation) in networking?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "To translate domain names to IP addresses" },
+      {
+        "label": "b",
+        "value": "To translate private IP addresses to public IP addresses"
+      },
+      { "label": "c", "value": "To encrypt data transmission" },
+      { "label": "d", "value": "To authenticate users" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "NAT translates private IP addresses used within a local network to public IP addresses used on the Internet."
+  },
+  {
+    "question": "What type of cable is commonly used to connect devices in a wired Ethernet network?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Coaxial cable" },
+      { "label": "b", "value": "Fiber optic cable" },
+      { "label": "c", "value": "Twisted pair cable" },
+      { "label": "d", "value": "USB cable" }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Twisted pair cables are commonly used in wired Ethernet networks to connect devices."
+  },
+  {
+    "question": "Which of the following is an example of a top-down network design approach?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Adding new devices as needed without a plan" },
+      { "label": "b", "value": "Starting with the physical layout of devices" },
+      { "label": "c", "value": "Identifying business requirements first" },
+      {
+        "label": "d",
+        "value": "Using trial and error to optimize network performance"
+      }
+    ],
+    "correctAnswer": "c",
+    "explanation": "Top-down network design involves identifying business requirements and then designing the network infrastructure to meet those needs."
+  },
+  {
+    "question": "Which protocol is used by web browsers to retrieve web pages from servers?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "FTP" },
+      { "label": "b", "value": "HTTP" },
+      { "label": "c", "value": "SMTP" },
+      { "label": "d", "value": "POP3" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "HTTP (HyperText Transfer Protocol) is used by web browsers to retrieve web pages from servers."
+  },
+  {
+    "question": "Which of the following is NOT a characteristic of a mesh network topology?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Redundant paths for data transmission" },
+      { "label": "b", "value": "Centralized control over network traffic" },
+      { "label": "c", "value": "Highly reliable network" },
+      { "label": "d", "value": "Scalable for large networks" }
+    ],
+    "correctAnswer": "b",
+    "explanation": "Mesh network topology does not have centralized control; it relies on decentralized communication."
+  },
+  {
+    "question": "Which of the following is NOT a valid IP address class?",
+    "image": "",
+    "options": [
+      { "label": "a", "value": "Class A" },
+      { "label": "b", "value": "Class B" },
+      { "label": "c", "value": "Class D" },
+      { "label": "d", "value": "Class E" }
+    ],
+    "correctAnswer": "d",
+    "explanation": "Class E is not a valid IP address class; it is reserved for experimental purposes."
+  }
+]

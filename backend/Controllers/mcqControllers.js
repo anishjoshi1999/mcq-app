@@ -8,7 +8,7 @@ async function uploadMCQS(req, res) {
     const { name } = req.body;
 
     // Step 2: Load MCQs data from JSON file
-    const mcqsData = require("../Data/c_language_mcqs.json");
+    const mcqsData = require("../Data/computer_network_mcq.json");
 
     // Step 3: Process each MCQ and generate slugs
     const processedMCQs = mcqsData.map((mcq) => ({
