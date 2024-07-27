@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 // Importing Routes
-const mcqRoute = require("./Routes/mcqRoute");
+const mcqRoute = require("./Routes/MCQ/mcqRoute");
 
 // Connection to Database
 

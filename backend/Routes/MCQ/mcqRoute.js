@@ -10,7 +10,7 @@ const {
   appendMCQsToTopic,
   updateSpecificMCQ,
   deleteSpecificMCQ,
-} = require("../Controllers/mcqControllers");
+} = require("../../Controllers/mcqControllers");
 
 // Route to fetch all topics with name and slug
 router.get("/", getAllTopics);
